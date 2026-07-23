@@ -240,6 +240,8 @@ static void logo_draw_thick_line(
 
     while (1)
     {
+        int doubled_error;
+
         logo_fill_circle(x0, y0, radius, color);
 
         if (x0 == x1 && y0 == y1)
@@ -247,13 +249,20 @@ static void logo_draw_thick_line(
             break;
         }
 
-        if ((2 * error) >= dy)
+        /*
+         * Preserve the current error value for both axis decisions.
+         * Re-evaluating after changing error can prevent one coordinate from
+         * advancing and trap the logo builder in an infinite loop.
+         */
+        doubled_error = 2 * error;
+
+        if (doubled_error >= dy)
         {
             error += dy;
             x0 += sx;
         }
 
-        if ((2 * error) <= dx)
+        if (doubled_error <= dx)
         {
             error += dx;
             y0 += sy;

@@ -1,7 +1,7 @@
 name: "UCTronics RM0013 Display"
-description: "Configurable full-color display for the UCTronics RM0013 with corrected bitmap logo rendering, sync handling, and line drawing"
+description: "Configurable full-color display with Home Assistant entity states and selectable transitions"
 url: "https://github.com/iamvinyl/UCTRONICS_RM0004_HA/tree/main/uc_tronics_display"
-version: "1.2.5"
+version: "1.3.0"
 slug: "uc_tronics_display"
 init: false
 arch:
@@ -17,17 +17,34 @@ devices:
 privileged:
   - "SYS_ADMIN"
 hassio_api: true
+homeassistant_api: true
 options:
   show_home_assistant_logo: true
   show_ip_address: true
   show_cpu_usage: true
   show_ram_usage: true
   show_disk_space: true
+  show_entity_state: false
+  entity_id: "sensor.example"
+  entity_label: ""
+  entity_attribute: ""
+  entity_refresh_interval: 5
   screen_duration: 5
+  transition_type: "slide"
+  transition_steps: 5
+  transition_delay_ms: 40
 schema:
   show_home_assistant_logo: bool
   show_ip_address: bool
   show_cpu_usage: bool
   show_ram_usage: bool
   show_disk_space: bool
+  show_entity_state: bool
+  entity_id: str
+  entity_label: str?
+  entity_attribute: str?
+  entity_refresh_interval: "int(2,300)"
   screen_duration: "int(2,60)"
+  transition_type: "list(none|slide|fade)"
+  transition_steps: "int(2,8)"
+  transition_delay_ms: "int(20,500)"

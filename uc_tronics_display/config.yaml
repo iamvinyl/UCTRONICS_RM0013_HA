@@ -1,7 +1,7 @@
 name: "UCTronics RM0013 Display"
-description: "Configurable full-color display for the UCTronics RM0013 with corrected bitmap logo rendering and RM0013 sync handling"
+description: "Configurable full-color display for the UCTronics RM0013 with corrected bitmap logo rendering, sync handling, and line drawing"
 url: "https://github.com/iamvinyl/UCTRONICS_RM0004_HA/tree/main/uc_tronics_display"
-version: "1.2.4"
+version: "1.2.5"
 slug: "uc_tronics_display"
 init: false
 arch:

@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 
-bashio::log.info "Starting UCTRONICS RM0013 160x80 color display v1.2.3"
+bashio::log.info "Starting UCTRONICS RM0013 160x80 color display v1.2.4"
 
 if [[ ! -e /dev/i2c-1 ]]; then
     bashio::log.fatal "I2C device /dev/i2c-1 was not found."
